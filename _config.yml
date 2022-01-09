@@ -65,6 +65,7 @@ jekyll_compose:
 number_of_posts: 5
 
 # Build settings
+markdown: kramdown
 # theme: klise
 sass:
   style: compressed
