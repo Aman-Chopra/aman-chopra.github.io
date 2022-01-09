@@ -2,12 +2,12 @@
 title: Acknowledgment
 permalink: /thanks/
 layout: page
-excerpt: Thanks to amazing people that I met, who help me out from follishness, connecting me with another good person, pulling me from ordinary to be great.
+excerpt: Thanks to the amazing people that I've met, who've enabled me to be better!
 comments: false
 ---
 
-Thanks to amazing people that I met, who help me out from follishness, connecting me with another good person, pulling me from ordinary to be great.
+Thanks to the amazing people that I've met, who've enabled me to be better!
 
 <hr>
 
-Hopefully the knowledge that I got from them can be useful.
+Hopefully the knowledge that I got from them can be put to amazing use.
