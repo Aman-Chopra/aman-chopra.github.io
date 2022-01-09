@@ -336,8 +336,9 @@ table {
   th,
   td,
   tr {
-    border: 1px solid $light;
-    padding: 2px 7px;
+    // border: 1px solid $light;
+    // padding: 2px 7px;
+    border: none;
   }
 }
 
