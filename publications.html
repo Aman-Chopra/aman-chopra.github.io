@@ -1,8 +1,8 @@
 ---
-title: Projects
-permalink: /projects/
+title: Publications
+permalink: /publications/
 layout: page
-excerpt: Projects.
+excerpt: All post.
 comments: false
 ---
 
@@ -15,12 +15,12 @@ comments: false
 
 <ul id="search-results"></ul> -->
 
-<h3 class="posts-item-note" aria-label="Recent projects">Some of the prominent works that I have done.</h3>
-{%- for post in site.categories.projects limit: site.number_of_posts -%}
+<h3 class="posts-item-note" aria-label="Publications"></h3>
+{%- for publication in site.categories.publications -%}
 <article class="post-item">
-  <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+  <!--<span class="post-item-date">{{ work.position | escape }}</span>-->
   <h4 class="post-item-title">
-    <a href="{{ post.url }}">{{ post.title | escape }}</a>
+    <a href="{{ publication.url }}">{{ publication.title | escape }}</a>
   </h4>
 </article>
 {%- endfor -%}

@@ -210,6 +210,11 @@ body[data-theme="dark"] {
     span.footer_item {
       color: $dark-white;
     }
+    img.footer_item {
+      color: $dark-white;
+      -webkit-filter: invert(1);
+      filter: invert(1);
+    }
     a.footer_item:not(:last-child) {
       color: $dark-white;
     }
