@@ -3,8 +3,7 @@ title: Aman Chopra # site title
 description: >- # site description
   Welcome to my site!
 lang: en-US # default lang
-timezone: Asia/Kolkata # set your timezone
-future: true
+
 image: assets/img/avatar.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/Aman-Chopra/aman-chopra.github.io # site repo [optional]
 mode: dark # default theme "dark" | "light"
