@@ -259,6 +259,8 @@
       &:hover,
       &focus {
         color: $black;
+        text-decoration: underline; 
+        text-decoration-thickness: 18%;
       }
     }
   }
