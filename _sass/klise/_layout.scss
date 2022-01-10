@@ -181,8 +181,7 @@
 
 // Author
 .author {
-  margin-top: 6.3rem;
-  margin-bottom: 7.2rem;
+  margin-top: 4rem;
   text-align: center;
 
   @include media-query($on-mobile) {
@@ -272,7 +271,7 @@ table, tr, td {
 
 // Footer
 .footer {
-  margin-top: 8em;
+  margin-top: 6.5em;
   margin-bottom: 2em;
   text-align: center;
 
