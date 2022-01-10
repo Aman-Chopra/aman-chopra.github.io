@@ -2,6 +2,10 @@
   url: /
   external: false
 
+- title: Skills
+  url: /skills/
+  external: false
+
 - title: Projects
   url: /projects/
   external: false
