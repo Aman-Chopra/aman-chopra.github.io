@@ -1,8 +1,9 @@
 ---
-title: Samsung Semiconductor India Research & Development
+title: Samsung Semiconductor India R&D
 date: 2018-06-22 11:58:47 +07:00
 modified: 2018-06-22 16:49:47 +07:00
 position: Student Intern
+timeline: Jan 2018 - Jun 2018
 tags: [electron, cpp, nodejs, angular]
 ---
 
