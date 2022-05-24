@@ -4,7 +4,7 @@ description: >- # site description
   Welcome to my site!
 lang: en-US # default lang
 
-image: assets/img/avatar.png # This image used for Open Graph more info https://ogp.me/
+image: assets/img/profile.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/Aman-Chopra/aman-chopra.github.io # site repo [optional]
 mode: dark # default theme "dark" | "light"
 
@@ -12,16 +12,15 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Aman Chopra # author name
   bio: >- # tell to the world
-    Hello! I am Aman Chopra. I am currently pursuing my Master's in Computer Science from the Courant Institute
-    of Mathematical Sciences - New York University. I have completed my Bachelor's in Technology from the Manipal Institue of Technology,
-    Manipal, India. Post that, I have worked as a Senior Software Engineer at Samsung Semiconductor India Research and Development.
-    I am an enthusiastic programmer with a keen interest in ML, NLP, Application and Web Development.
+    I am currently interning at Amazon, NYC as an SDE Intern and pursuing my Master's in Computer Science from the Courant Institute of Mathematical Sciences - New York University. 
+    I have completed my Bachelor's in Technology from the Manipal Institue of Technology, Manipal, India. Post that, I worked as a Senior Software Engineer at Samsung Semiconductor 
+    India Research and Development for 3 years. I am an enthusiastic programmer with a keen interest in Software Development.
   username: user # general username
   github: Aman-Chopra # github username
   twitter: twitter_username # twitter username
   facebook: facebook_username # facebook username
   email: ac8511@nyu.edu # email adress
-  avatar: /assets/img/avatar.jpg # change with your own avatar
+  avatar: /assets/img/profile.jpg # change with your own avatar
 
 # URL settings
 url: "https://aman-chopra.github.io/" #
