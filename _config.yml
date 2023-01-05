@@ -12,9 +12,11 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Aman Chopra # author name
   bio: >- # tell to the world
-    I am a former AWS Intern and am currently pursuing my Master's in Computer Science from the Courant Institute of Mathematical Sciences at New York University. 
-    I have completed my Bachelor's in Technology from the Manipal Institute of Technology, Manipal, India. Post that, I worked as a Senior Software Engineer at Samsung Semiconductor India Research and Development for 3 years. 
-    I am an enthusiastic programmer with a keen interest in Software Development.
+    Aman is a driven and passionate individual with the goal of positively impacting society through his skills. 
+    He is an enthusiastic programmer with a keen interest in Software Development. 
+    Aman pursued his Master's in Computer Science from the Courant Institute of Mathematical Sciences at New York University, 
+    where he gained in-depth knowledge about Distributed Systems, Operating Systems, Databases, and Data Structures. 
+    Aman has completed his Bachelor's in Technology from the Manipal Institute of Technology, Manipal, India.
   username: user # general username
   github: Aman-Chopra # github username
   twitter: twitter_username # twitter username
