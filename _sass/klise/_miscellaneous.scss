@@ -75,31 +75,70 @@ body[data-theme="dark"] {
   font-weight: 800;
 }
 
-/* --- Hero Section Styles --- */
-.hero-container {
-  padding: 3rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--border-card);
+/* --- Unified Premium Hero (Author Card Override) --- */
+.author {
+  margin-top: 4.5rem;
+  margin-bottom: 3.5rem;
 
-  .hero-title {
-    font-size: 2.5rem;
+  .author-avatar {
+    width: 120px !important;
+    height: 120px !important;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid var(--border-card);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    
+    &:hover {
+      transform: scale(1.08) rotate(2deg);
+      border-color: var(--accent-color);
+    }
+  }
+
+  .author-name {
+    font-size: 2.25rem !important;
     font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
-    line-height: 1.2;
+    
+    a {
+      color: inherit !important;
+      text-decoration: none !important;
+      background: linear-gradient(135deg, var(--badge-text) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      
+      &:hover {
+        background: linear-gradient(135deg, var(--accent-color) 0%, #ff7e5f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
   }
 
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1.25rem;
     color: var(--text-muted);
   }
 
-  .hero-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    max-width: 640px;
+  .author-subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .author-bio {
+    max-width: 580px !important;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    opacity: 0.95;
+    margin: 0 auto 1.5rem auto !important;
   }
 }
 
@@ -112,6 +151,8 @@ body[data-theme="dark"] {
   border-right: 3px solid var(--accent-color);
   padding-right: 4px;
   animation: blink 0.75s step-end infinite;
+  font-weight: 600;
+  color: var(--accent-color);
 }
 
 /* --- Buttons & CTAs --- */
@@ -119,6 +160,9 @@ body[data-theme="dark"] {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
