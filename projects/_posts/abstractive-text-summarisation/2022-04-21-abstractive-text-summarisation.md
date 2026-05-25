@@ -14,7 +14,7 @@ In this project, we have explored the state-of-the-art Transformer Neural Networ
 obtained by Transformers with a Bi-Directional LSTM with Attention for the dataset we have used. 
 Our experimental results show that Transformers perform as well as Bi-LSTMs on the dataset that we have chosen. Transformers however increase the training efficiency and decrease the training times per epoch by a whole lot.</p>
 
-### Transformer Seq2Seq Encoder-Decoder Architecture *(Diagnostic: V2)*
+### Transformer Seq2Seq Encoder-Decoder Architecture
 
 ```mermaid
 flowchart LR

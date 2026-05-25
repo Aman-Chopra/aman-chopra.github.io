@@ -168,6 +168,56 @@
   {%- if page.mermaid -%}
     <!-- Selective Mermaid.js load -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+      .mermaid {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 32px;
+        margin: 24px 0;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        overflow-x: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      body[data-theme="dark"] .mermaid {
+        background: rgba(255, 255, 255, 0.015);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      body:not([data-theme="dark"]) .mermaid {
+        background: rgba(0, 0, 0, 0.015);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+      }
+      .mermaid:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      body:not([data-theme="dark"]) .mermaid:hover {
+        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.08);
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      .mermaid svg {
+        max-width: 100% !important;
+        min-width: 800px;
+        height: auto !important;
+        display: block;
+      }
+      @media (max-width: 768px) {
+        .mermaid {
+          padding: 20px;
+          border-radius: 12px;
+        }
+        .mermaid svg {
+          min-width: 700px;
+        }
+      }
+    </style>
     <script>
       (function() {
         const initMermaid = () => {
@@ -175,29 +225,6 @@
             const codeBlocks = document.querySelectorAll("pre > code.language-mermaid");
             const fallbackBlocks = document.querySelectorAll("code.language-mermaid, .language-mermaid code");
             const allBlocks = new Set([...codeBlocks, ...fallbackBlocks]);
-
-            const diagDiv = document.createElement("div");
-            diagDiv.style.background = "#1a1a1a";
-            diagDiv.style.color = "#00ff00";
-            diagDiv.style.border = "2px solid #00ff00";
-            diagDiv.style.padding = "12px";
-            diagDiv.style.margin = "15px";
-            diagDiv.style.borderRadius = "6px";
-            diagDiv.style.fontFamily = "monospace";
-            diagDiv.style.fontSize = "13px";
-            diagDiv.style.lineHeight = "1.5";
-            diagDiv.id = "mermaid-diagnostic";
-            
-            diagDiv.innerHTML = `
-              <strong>⚙️ [Mermaid Diagnostic Log]</strong><br>
-              • Page Ready State: <code>${document.readyState}</code><br>
-              • <code>pre &gt; code.language-mermaid</code> matches: <code>${codeBlocks.length}</code><br>
-              • Fallback matches: <code>${fallbackBlocks.length}</code><br>
-              • Total unique nodes: <code>${allBlocks.size}</code><br>
-              • Global <code>mermaid</code> defined: <code>${typeof mermaid !== 'undefined'}</code>
-            `;
-            const container = document.body;
-            container.insertBefore(diagDiv, container.firstChild);
 
             allBlocks.forEach(codeEl => {
               const preEl = codeEl.closest("pre") || codeEl.parentElement;
@@ -233,19 +260,6 @@
             }
           } catch (e) {
             console.error("Mermaid initialization error:", e);
-            const errDiv = document.createElement("div");
-            errDiv.style.color = "#ff5555";
-            errDiv.style.background = "#111111";
-            errDiv.style.border = "2px solid #ff5555";
-            errDiv.style.padding = "15px";
-            errDiv.style.margin = "20px 0";
-            errDiv.style.borderRadius = "8px";
-            errDiv.style.fontFamily = "monospace";
-            errDiv.style.whiteSpace = "pre-wrap";
-            errDiv.textContent = "⚠️ Mermaid Init Error: " + e.message + "\n\nStack:\n" + e.stack;
-            
-            const container = document.querySelector(".page-content") || document.body;
-            container.insertBefore(errDiv, container.firstChild);
           }
         };
 
