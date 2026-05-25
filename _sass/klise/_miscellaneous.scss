@@ -640,6 +640,7 @@ body[data-theme="dark"] {
     width: 42px;
     height: 42px;
     box-shadow: 0 2px 5px var(--shadow-color);
+    position: relative;
 
     &:hover {
       color: #ffffff !important;
@@ -651,10 +652,35 @@ body[data-theme="dark"] {
       .footer_svg {
         transform: scale(1.05);
       }
+
+      .footer_tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
     }
 
     .footer_svg {
       transition: transform 0.3s ease;
+    }
+
+    .footer_tooltip {
+      position: absolute;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--badge-text);
+      padding: 0.3rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px var(--shadow-color);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      letter-spacing: 0.3px;
     }
   }
 }
