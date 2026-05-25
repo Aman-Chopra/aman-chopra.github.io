@@ -170,6 +170,18 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Find all Kramdown-generated markdown code blocks for Mermaid
+        const codeBlocks = document.querySelectorAll("pre > code.language-mermaid");
+        codeBlocks.forEach(codeEl => {
+          const preEl = codeEl.parentElement;
+          const mermaidDiv = document.createElement("div");
+          mermaidDiv.className = "mermaid";
+          // textContent preserves newlines and decodes HTML entities (e.g. --&gt; back to -->)
+          mermaidDiv.textContent = codeEl.textContent;
+          preEl.parentNode.insertBefore(mermaidDiv, preEl);
+          preEl.parentNode.removeChild(preEl);
+        });
+
         const isDark = document.body.getAttribute("data-theme") === "dark";
         mermaid.initialize({
           theme: isDark ? "dark" : "default",

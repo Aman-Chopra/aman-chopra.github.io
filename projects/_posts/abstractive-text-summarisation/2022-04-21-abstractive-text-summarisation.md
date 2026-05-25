@@ -16,7 +16,7 @@ Our experimental results show that Transformers perform as well as Bi-LSTMs on t
 
 ### Transformer Seq2Seq Encoder-Decoder Architecture
 
-<div class="mermaid">
+```mermaid
 flowchart LR
     Input["Input Article Tokens"] -- "Positional Encoding" --> Enc["Encoder Stack"]
     Enc -- "Self-Attention Blocks" --> EncOut["Context Representations"]
@@ -33,7 +33,7 @@ flowchart LR
     style Attn fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
     style Linear fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
     style Prob fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
-</div>
+```
 
 <br><br>
 More on this project can be found <a href="https://github.com/Aman-Chopra/Abstractive-Text-Summarization" target="_blank">here</a>
