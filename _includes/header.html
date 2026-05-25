@@ -169,29 +169,47 @@
     <!-- Selective Mermaid.js load -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Find all Kramdown-generated markdown code blocks for Mermaid
-        const codeBlocks = document.querySelectorAll("pre > code.language-mermaid");
-        codeBlocks.forEach(codeEl => {
-          const preEl = codeEl.parentElement;
-          const mermaidDiv = document.createElement("div");
-          mermaidDiv.className = "mermaid";
-          // textContent preserves newlines and decodes HTML entities (e.g. --&gt; back to -->)
-          mermaidDiv.textContent = codeEl.textContent;
-          preEl.parentNode.insertBefore(mermaidDiv, preEl);
-          preEl.parentNode.removeChild(preEl);
-        });
+      (function() {
+        const initMermaid = () => {
+          // Find all Kramdown-generated markdown code blocks for Mermaid
+          const codeBlocks = document.querySelectorAll("pre > code.language-mermaid");
+          codeBlocks.forEach(codeEl => {
+            const preEl = codeEl.parentElement;
+            const mermaidDiv = document.createElement("div");
+            mermaidDiv.className = "mermaid";
+            // textContent preserves newlines and decodes HTML entities (e.g. --&gt; back to -->)
+            mermaidDiv.textContent = codeEl.textContent;
+            preEl.parentNode.insertBefore(mermaidDiv, preEl);
+            preEl.parentNode.removeChild(preEl);
+          });
 
-        const isDark = document.body.getAttribute("data-theme") === "dark";
-        mermaid.initialize({
-          theme: isDark ? "dark" : "default",
-          securityLevel: "loose",
-          startOnLoad: true,
-          themeVariables: {
-            fontFamily: "Outfit, sans-serif"
+          const isDark = document.body.getAttribute("data-theme") === "dark";
+          mermaid.initialize({
+            theme: isDark ? "dark" : "default",
+            securityLevel: "loose",
+            startOnLoad: false, // Explicitly false since we manually invoke the parser below
+            themeVariables: {
+              fontFamily: "Outfit, sans-serif"
+            }
+          });
+
+          // Force manual rendering on the newly created nodes
+          const nodes = document.querySelectorAll(".mermaid");
+          if (nodes.length > 0) {
+            if (typeof mermaid.run === "function") {
+              mermaid.run({ nodes: nodes });
+            } else if (typeof mermaid.init === "function") {
+              mermaid.init(undefined, nodes);
+            }
           }
-        });
-      });
+        };
+
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+          initMermaid();
+        } else {
+          document.addEventListener("DOMContentLoaded", initMermaid);
+        }
+      })();
     </script>
   {%- endif -%}
 
