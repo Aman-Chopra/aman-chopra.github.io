@@ -14,18 +14,18 @@ In this project, we have explored the state-of-the-art Transformer Neural Networ
 obtained by Transformers with a Bi-Directional LSTM with Attention for the dataset we have used. 
 Our experimental results show that Transformers perform as well as Bi-LSTMs on the dataset that we have chosen. Transformers however increase the training efficiency and decrease the training times per epoch by a whole lot.</p>
 
-### Transformer Seq2Seq Encoder-Decoder Architecture
+### Transformer Seq2Seq Encoder-Decoder Architecture *(Diagnostic: V2)*
 
 ```mermaid
 flowchart LR
-    Input["Input Article Tokens"] -- "Positional Encoding" --> Enc["Encoder Stack"]
-    Enc -- "Self-Attention Blocks" --> EncOut["Context Representations"]
-    EncOut -- "Key/Value Vectors" --> Attn["Multi-Head Attention Alignment"]
+    Input["Input Article Tokens"] -->|Positional Encoding| Enc["Encoder Stack"]
+    Enc -->|Self-Attention Blocks| EncOut["Context Representations"]
+    EncOut -->|Key/Value Vectors| Attn["Multi-Head Attention Alignment"]
     
-    PrevOut["Generated Summary Tokens"] -- "Positional Encoding" --> Dec["Decoder Stack"]
-    Dec -- "Masked Self-Attention" --> Attn
-    Attn -- "Attention Output" --> Linear["Linear Projection"]
-    Linear -- "Softmax probabilities" --> Prob["Next Token Prediction"]
+    PrevOut["Generated Summary Tokens"] -->|Positional Encoding| Dec["Decoder Stack"]
+    Dec -->|Masked Self-Attention| Attn
+    Attn -->|Attention Output| Linear["Linear Projection"]
+    Linear -->|Softmax probabilities| Prob["Next Token Prediction"]
 
     style Enc fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
     style EncOut fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
