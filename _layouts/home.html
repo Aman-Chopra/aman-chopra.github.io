@@ -3,4 +3,43 @@ layout: default
 home: true
 ---
 
+<div class="hero-container">
+  <h1 class="hero-title">Hey, I'm <span class="gradient-text">Aman Chopra</span> 👋</h1>
+  <h2 class="hero-subtitle">
+    I am a <span class="typing-text">Software Engineer</span>
+  </h2>
+  
+  <p class="hero-description">
+    A master's graduate in Computer Science from the Courant Institute (NYU) passionate about designing high-performance, fault-tolerant distributed systems and databases.
+  </p>
 
+  <div class="hero-ctas">
+    <a href="/projects/" class="btn btn-primary">Explore Projects</a>
+    <a href="/experience/" class="btn btn-secondary">My Journey</a>
+    <a href="/assets/Aman_Chopra_Resume.pdf" target="_blank" class="btn btn-tertiary">Resume</a>
+  </div>
+</div>
+
+<div class="featured-section">
+  <h3 class="featured-heading">Highlighted Work</h3>
+  <div class="featured-grid">
+    {%- for post in site.categories.projects limit: 3 -%}
+      <a href="{{ post.url }}" class="featured-card">
+        <div class="card-content">
+          <span class="card-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          <h4 class="card-title">{{ post.title | escape }}</h4>
+          <div class="card-tags">
+            {%- for tag in post.tags limit: 4 -%}
+              <span class="tag-badge">#{{ tag }}</span>
+            {%- endfor -%}
+          </div>
+        </div>
+        <div class="card-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{{ content }}

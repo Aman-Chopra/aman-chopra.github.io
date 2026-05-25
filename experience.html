@@ -15,26 +15,31 @@ comments: false
 
 <ul id="search-results"></ul> -->
 
-<h3 class="posts-item-note" aria-label="Recent experiences"></h3>
-{%- for work in site.categories.experiences -%}
-<article class="post-item">
-  <table cellspacing="0" cellpadding="0">
-    <tr>
-      <td style='width: 20%'>
-        <span class="post-item-date">{{ work.position | escape }}</span>
-      </td>
-      <td>
-        <h4 class="post-item-title">
+<h3 class="posts-item-note" aria-label="Recent experiences">Professional journey & milestones.</h3>
+
+<div class="timeline-container">
+  {%- for work in site.categories.experiences -%}
+    <div class="timeline-item">
+      <div class="timeline-badge"></div>
+      <div class="timeline-panel">
+        <div class="timeline-header">
+          <span class="timeline-timeline">{{ work.timeline | escape }}</span>
+          <span class="timeline-position">{{ work.position | escape }}</span>
+        </div>
+        <h4 class="timeline-title">
           <a href="{{ work.url }}">{{ work.title | escape }}</a>
         </h4>
-      </td>
-      <td style='width: 30%'>
-        <span class="post-item-date">{{ work.timeline | escape }}</span>
-      </td>
-    </tr>
-  </table>
-</article>
-{%- endfor -%}
+        {%- if work.tags -%}
+          <div class="timeline-tags">
+            {%- for tag in work.tags -%}
+              <span class="timeline-tag">#{{ tag }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
 
 <!-- {%- for post in site.posts -%}
   {%- capture current_year -%}{{ post.date | date: "%Y" }}{%- endcapture -%}

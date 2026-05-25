@@ -30,13 +30,15 @@
     galite.UA = "{{ site.google_analytics }}";
   </script>
 {%- endif -%}
-{%- if page.url == '/archive/' -%}
+{%- if page.url == '/projects/' -%}
   <script src="/assets/js/search.min.js"></script>
   <script>
     var sjs = SimpleJekyllSearch({
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('search-results'),
       json: '/assets/search.json',
+      searchResultTemplate: '<article class="post-item"><span class="post-item-date">{date}</span><h4 class="post-item-title"><a href="{url}">{title}</a></h4></article>',
+      noResultsText: '<p class="no-results-msg">No projects found matching that search.</p>'
     });
   </script>
 {%- endif -%}

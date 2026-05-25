@@ -5,23 +5,81 @@ layout: page
 excerpt: Sorted article by tags.
 ---
 
+<!-- Core Expertise Grid -->
+<div class="skills-grid-container">
+  <h3 class="skills-heading">Core Competencies</h3>
+  <div class="skills-grid">
+    
+    <div class="skill-category-card">
+      <div class="category-icon">🧬</div>
+      <h4 class="category-title">Distributed Systems & DBs</h4>
+      <div class="category-pills">
+        <span class="skill-pill">Distributed Consensus</span>
+        <span class="skill-pill">MVCC & Concurrency</span>
+        <span class="skill-pill">Replication & Fault-Tolerance</span>
+        <span class="skill-pill">Two-Phase Locking</span>
+      </div>
+    </div>
+
+    <div class="skill-category-card">
+      <div class="category-icon">💻</div>
+      <h4 class="category-title">Programming Languages</h4>
+      <div class="category-pills">
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Go</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-category-card">
+      <div class="category-icon">☁️</div>
+      <h4 class="category-title">Cloud & Infrastructure</h4>
+      <div class="category-pills">
+        <span class="skill-pill">AWS (IAM, Connect)</span>
+        <span class="skill-pill">Distributed Databases</span>
+        <span class="skill-pill">Serverless Architecture</span>
+        <span class="skill-pill">Microservices</span>
+      </div>
+    </div>
+
+    <div class="skill-category-card">
+      <div class="category-icon">🔬</div>
+      <h4 class="category-title">Advanced Computing</h4>
+      <div class="category-pills">
+        <span class="skill-pill">Text Summarisation</span>
+        <span class="skill-pill">Performance Prediction</span>
+        <span class="skill-pill">Sign Language ASL ML</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<h3 class="skills-heading" style="margin-top: 2.5rem;">Explore works by Tag</h3>
+
 <div class="archive-tags">
-  <a class="tag-item" href="#">all</a>
+  <a class="tag-item active-tag" href="#">all</a>
   {%- for tag in site.tags -%} 
     {% capture name %}{{ tag | first }}{% endcapture %}
-    <a class="tag-item" href="#{{name}}">{{ name }}</a> 
+    <a class="tag-item" href="#{{name}}">#{{ name }}</a> 
   {%- endfor -%}
 </div>
 
-{%- for tag in site.tags -%}
-  {%- capture name -%}{{ tag | first }}{%- endcapture -%}
-  <h2 id="{{ name }}">{{ name | upcase }}</h2>
-  {%- for post in site.tags[name] -%}
-    <article class="post-item" id="results-container">
-      <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
-      <h3 class="post-item-title">
-        <a href="{{ post.url }}">{{ post.title | escape }}</a>
-      </h3> 
-    </article>
+<div class="tags-posts-container">
+  {%- for tag in site.tags -%}
+    {%- capture name -%}{{ tag | first }}{%- endcapture -%}
+    <div class="tag-group" id="{{ name }}-group">
+      <h3 id="{{ name }}" class="tag-group-title">#{{ name | upcase }}</h3>
+      {%- for post in site.tags[name] -%}
+        <article class="post-item">
+          <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          <h4 class="post-item-title">
+            <a href="{{ post.url }}">{{ post.title | escape }}</a>
+          </h4> 
+        </article>
+      {%- endfor -%}
+    </div>
   {%- endfor -%}
-{%- endfor -%}
+</div>
