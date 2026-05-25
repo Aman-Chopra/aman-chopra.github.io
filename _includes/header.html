@@ -177,6 +177,30 @@
             const fallbackBlocks = document.querySelectorAll("code.language-mermaid, .language-mermaid code");
             const allBlocks = new Set([...codeBlocks, ...fallbackBlocks]);
 
+            // Create diagnostic banner
+            const diagDiv = document.createElement("div");
+            diagDiv.style.background = "#1a1a1a";
+            diagDiv.style.color = "#00ff00";
+            diagDiv.style.border = "2px solid #00ff00";
+            diagDiv.style.padding = "12px";
+            diagDiv.style.margin = "15px";
+            diagDiv.style.borderRadius = "6px";
+            diagDiv.style.fontFamily = "monospace";
+            diagDiv.style.fontSize = "13px";
+            diagDiv.style.lineHeight = "1.5";
+            diagDiv.id = "mermaid-diagnostic";
+            
+            diagDiv.innerHTML = `
+              <strong>⚙️ [Mermaid Diagnostic Log]</strong><br>
+              • Page Ready State: <code>${document.readyState}</code><br>
+              • <code>pre &gt; code.language-mermaid</code> matches: <code>${codeBlocks.length}</code><br>
+              • Fallback matches: <code>${fallbackBlocks.length}</code><br>
+              • Total unique nodes: <code>${allBlocks.size}</code><br>
+              • Global <code>mermaid</code> defined: <code>${typeof mermaid !== 'undefined'}</code>
+            `;
+            const container = document.body;
+            container.insertBefore(diagDiv, container.firstChild);
+
             allBlocks.forEach(codeEl => {
               const preEl = codeEl.closest("pre") || codeEl.parentElement;
               if (!preEl) return;
