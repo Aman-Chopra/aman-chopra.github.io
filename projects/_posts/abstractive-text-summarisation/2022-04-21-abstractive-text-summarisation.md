@@ -18,14 +18,14 @@ Our experimental results show that Transformers perform as well as Bi-LSTMs on t
 
 <div class="mermaid">
 flowchart LR
-    Input["Input Article Tokens"] -->|"Positional Encoding"| Enc["Encoder Stack"]
-    Enc -->|"Self-Attention Blocks"| EncOut["Context Representations"]
-    EncOut -->|"Key/Value Vectors"| Attn["Multi-Head Attention Alignment"]
+    Input["Input Article Tokens"] -- "Positional Encoding" --> Enc["Encoder Stack"]
+    Enc -- "Self-Attention Blocks" --> EncOut["Context Representations"]
+    EncOut -- "Key/Value Vectors" --> Attn["Multi-Head Attention Alignment"]
     
-    PrevOut["Generated Summary Tokens"] -->|"Positional Encoding"| Dec["Decoder Stack"]
-    Dec -->|"Masked Self-Attention"| Attn
-    Attn -->|"Attention Output"| Linear["Linear Projection"]
-    Linear -->|"Softmax probabilities"| Prob["Next Token Prediction"]
+    PrevOut["Generated Summary Tokens"] -- "Positional Encoding" --> Dec["Decoder Stack"]
+    Dec -- "Masked Self-Attention" --> Attn
+    Attn -- "Attention Output" --> Linear["Linear Projection"]
+    Linear -- "Softmax probabilities" --> Prob["Next Token Prediction"]
 
     style Enc fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
     style EncOut fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
