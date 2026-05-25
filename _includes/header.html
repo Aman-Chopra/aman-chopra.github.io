@@ -160,5 +160,28 @@
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#2c2c2c" />
 
+  <!-- Premium Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  {%- if page.mermaid -%}
+    <!-- Selective Mermaid.js load -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const isDark = document.body.getAttribute("data-theme") === "dark";
+        mermaid.initialize({
+          theme: isDark ? "dark" : "default",
+          securityLevel: "loose",
+          startOnLoad: true,
+          themeVariables: {
+            fontFamily: "Outfit, sans-serif"
+          }
+        });
+      });
+    </script>
+  {%- endif -%}
+
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>

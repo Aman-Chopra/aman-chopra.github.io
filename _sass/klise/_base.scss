@@ -201,7 +201,9 @@ h4,
 h5,
 h6 {
   color: $black;
-  font-weight: $bold-weight;
+  font-family: $heading-family;
+  letter-spacing: -0.5px;
+  font-weight: 800;
   & + ul,
   & + ol {
     margin-top: 10px;
