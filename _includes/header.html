@@ -253,11 +253,7 @@
           }
         };
 
-        if (document.readyState === "complete" || document.readyState === "interactive") {
-          initMermaid();
-        } else {
-          document.addEventListener("DOMContentLoaded", initMermaid);
-        }
+        document.addEventListener("DOMContentLoaded", initMermaid);
       })();
     </script>
   {%- endif -%}
