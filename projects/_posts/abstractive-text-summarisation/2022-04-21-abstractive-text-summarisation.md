@@ -17,23 +17,22 @@ Our experimental results show that Transformers perform as well as Bi-LSTMs on t
 ### Transformer Seq2Seq Encoder-Decoder Architecture
 
 <div class="mermaid">
-graph LR
-    Input[Input Article Tokens] -->|Positional Encoding| Enc[Encoder Stack]
-    Enc -->|Self-Attention Blocks| EncOut[Context Representations]
-    EncOut -->|Key/Value Vectors| Attn[Multi-Head Attention Alignment]
+flowchart LR
+    Input["Input Article Tokens"] -->|"Positional Encoding"| Enc["Encoder Stack"]
+    Enc -->|"Self-Attention Blocks"| EncOut["Context Representations"]
+    EncOut -->|"Key/Value Vectors"| Attn["Multi-Head Attention Alignment"]
     
-    PrevOut[Generated Summary Tokens] -->|Positional Encoding| Dec[Decoder Stack]
-    Dec -->|Masked Self-Attention| Attn
-    Attn -->|Attention Output| Linear[Linear Projection]
-    Linear -->|Softmax probabilities| Prob[Next Token Prediction]
+    PrevOut["Generated Summary Tokens"] -->|"Positional Encoding"| Dec["Decoder Stack"]
+    Dec -->|"Masked Self-Attention"| Attn
+    Attn -->|"Attention Output"| Linear["Linear Projection"]
+    Linear -->|"Softmax probabilities"| Prob["Next Token Prediction"]
 
-    classDef encClass fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef decClass fill:#ff5277,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef attnClass fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff;
-    
-    class Enc,EncOut encClass;
-    class Dec decClass;
-    class Attn,Linear,Prob attnClass;
+    style Enc fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
+    style EncOut fill:#3572A5,stroke:#fff,stroke-width:2px,color:#fff
+    style Dec fill:#ff5277,stroke:#fff,stroke-width:2px,color:#fff
+    style Attn fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
+    style Linear fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
+    style Prob fill:#1DB954,stroke:#fff,stroke-width:2px,color:#fff
 </div>
 
 <br><br>
