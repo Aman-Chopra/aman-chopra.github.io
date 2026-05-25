@@ -584,3 +584,231 @@ body[data-theme="dark"] {
   font-style: italic;
 }
 
+/* --- Fixed Gradient Scroll Progress Bar --- */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff5277 0%, #ff7e5f 100%);
+  transition: width 0.1s ease-out;
+}
+
+/* --- Fluid Page Staggered Fade-in Animation --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wrapper {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Premium SVG Social Icons Overlay --- */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
+  a.footer_item {
+    margin: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted) !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+
+    &:hover {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #ff5277 0%, #ff7e5f 100%);
+      border-color: transparent;
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 6px 15px rgba(255, 82, 119, 0.35);
+
+      .footer_svg {
+        transform: scale(1.05);
+      }
+    }
+
+    .footer_svg {
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+/* Override invert rules for dark mode SVGs */
+body[data-theme="dark"] {
+  .footer img.footer_item {
+    filter: none !important;
+  }
+  .footer_item {
+    color: var(--badge-text) !important;
+  }
+}
+
+/* --- Company Specific Timeline Milestones --- */
+.timeline-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem !important;
+  width: 24px !important;
+  height: 24px !important;
+  left: -3px !important;
+  top: 10px !important;
+  background-color: var(--bg-card) !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--timeline-line) !important;
+  box-shadow: 0 2px 4px var(--shadow-color) !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+
+  &.badge-amazon {
+    border-color: #ff9900 !important; /* AWS Orange */
+  }
+
+  &.badge-samsung {
+    border-color: #034EA2 !important; /* Samsung Blue */
+  }
+
+  &.badge-gs {
+    border-color: #d4af37 !important; /* Goldman Gold */
+  }
+
+  &.badge-generic {
+    border-color: var(--accent-color) !important;
+  }
+}
+
+.timeline-item:hover {
+  .timeline-badge {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 82, 119, 0.4) !important;
+    background-color: var(--bg-card) !important;
+  }
+}
+
+/* --- Scholar-Grade Publications List --- */
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.publication-card {
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
+
+  .pub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .pub-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &.pub-springer {
+      background-color: rgba(0, 150, 136, 0.1);
+      color: #009688;
+    }
+
+    &.pub-ieee {
+      background-color: rgba(3, 78, 162, 0.1);
+      color: #034ea2;
+    }
+
+    &.pub-generic {
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+    }
+  }
+
+  .pub-year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .pub-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+
+    a {
+      color: inherit !important;
+      text-decoration: none !important;
+
+      &:hover {
+        color: var(--accent-color) !important;
+      }
+    }
+  }
+
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .pub-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 1rem 0;
+    text-align: justify;
+  }
+
+  .pub-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+}
+
+

@@ -15,15 +15,47 @@ comments: false
 
 <ul id="search-results"></ul> -->
 
-<h3 class="posts-item-note" aria-label="Publications"></h3>
-{%- for publication in site.categories.publications -%}
-<article class="post-item">
-  <!--<span class="post-item-date">{{ work.position | escape }}</span>-->
-  <h4 class="post-item-title">
-    <a href="{{ publication.url }}">{{ publication.title | escape }}</a>
-  </h4>
-</article>
-{%- endfor -%}
+<h3 class="posts-item-note" aria-label="Publications">Peer-reviewed research and papers.</h3>
+
+<div class="publications-list">
+  {%- for publication in site.categories.publications -%}
+    {%- if publication.tags contains 'asl' or publication.tags contains 'audio-analysis' -%}
+      {%- assign publisher = "Springer" -%}
+      {%- assign pub_class = "pub-springer" -%}
+    {%- elsif publication.tags contains 'feature-selection' or publication.tags contains 'k-means' -%}
+      {%- assign publisher = "IEEE" -%}
+      {%- assign pub_class = "pub-ieee" -%}
+    {%- else -%}
+      {%- assign publisher = "Research" -%}
+      {%- assign pub_class = "pub-generic" -%}
+    {%- endif -%}
+
+    <div class="publication-card">
+      <div class="pub-header">
+        <span class="pub-badge {{ pub_class }}">{{ publisher }}</span>
+        <span class="pub-year">{{ publication.date | date: "%Y" }}</span>
+      </div>
+      
+      <h4 class="pub-title">
+        <a href="{{ publication.url }}">{{ publication.title | escape }}</a>
+      </h4>
+      
+      <p class="pub-authors"><strong>Aman Chopra</strong>, et al.</p>
+      
+      <p class="pub-excerpt">
+        {{ publication.content | strip_html | truncate: 175 }}
+      </p>
+
+      {%- if publication.tags -%}
+        <div class="pub-tags">
+          {%- for tag in publication.tags limit: 4 -%}
+            <span class="pub-tag">#{{ tag }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
 
 <!-- {%- for post in site.posts -%}
   {%- capture current_year -%}{{ post.date | date: "%Y" }}{%- endcapture -%}

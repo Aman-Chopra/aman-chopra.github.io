@@ -63,4 +63,15 @@
     
     setTimeout(type, 1000);
   }
+
+  // Scroll Progress Indicator
+  const scrollIndicator = document.getElementById("scroll-progress-indicator");
+  if (scrollIndicator) {
+    window.addEventListener("scroll", () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      scrollIndicator.style.width = scrolled + "%";
+    });
+  }
 })();
