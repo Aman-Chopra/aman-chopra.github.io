@@ -219,7 +219,7 @@ body[data-theme="dark"] {
       -webkit-filter: invert(1);
       filter: invert(1);
     }
-    a.footer_item:not(:last-child) {
+    a.footer_item {
       color: $dark-white;
     }
     .footer_copyright {

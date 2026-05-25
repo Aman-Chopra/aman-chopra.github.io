@@ -3,6 +3,8 @@ layout: post
 title: Abstractive Text Summarisation using Transformers
 date: 2022-04-21 10:00:00 +07:00
 tags: [machine-learning, transformers, lstm, nlp]
+github_repo: Aman-Chopra/Abstractive-Text-Summarization
+language: Python
 ---
 <p style="text-align: justify;">
 Abstractive text summarization focuses on generating a meaningful summary of the given text as opposed to extractive text summarization which concatenates important sentences from the paragraph. 

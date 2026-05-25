@@ -3,6 +3,16 @@ title: Prediction of factors affecting amlodipine induced pedal edema and its cl
 date: 2017-09-14 11:58:47 +07:00
 modified: 2017-09-14 16:49:47 +07:00
 tags: [feature-selection, svm, random-forest, genetic-algorithm]
+paper_url: https://ieeexplore.ieee.org/document/8126085
+bibtex: |
+  @inproceedings{chopra2017prediction,
+    title={Prediction of factors affecting amlodipine induced pedal edema and its classification},
+    author={Chopra, Aman and others},
+    booktitle={2017 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)},
+    pages={1248--1253},
+    year={2017},
+    organization={IEEE}
+  }
 ---
 
 <p style="text-align: justify;">

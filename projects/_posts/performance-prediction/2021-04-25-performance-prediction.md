@@ -4,6 +4,8 @@ title: Performance Prediction of Multi-threaded Applications
 date: 2021-04-25 11:58:47 +07:00
 modified: 2021-04-25 16:49:47 +07:00
 tags: [multithreading, parsec, speedup, random-forest, lasso, artificial-neural-network]
+github_repo: Aman-Chopra/Performance-Prediction-Multithreaded-Applications
+language: C++
 ---
 <p style="text-align: justify;">
 In recent years, owing to the advancement in parallel programming, it is becoming crucial to evaluate the performance of multithreaded applications. Most of the times, just allocating resources and using expensive hardware does not guarantee speedup and hence it is important to do code instrumentation. According to Amdahl’s law, many programs might not be parallelizable. Sometimes, the parallelisation overhead might not give the expected speedup. In this paper, we are proposing a learning-based approach to predict the execution time and hence the speedup of an unseen program on a given machine using application characteristics for specific hardware.
