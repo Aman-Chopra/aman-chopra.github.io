@@ -172,12 +172,10 @@
       (function() {
         const initMermaid = () => {
           try {
-            // Find all Kramdown-generated markdown code blocks for Mermaid
             const codeBlocks = document.querySelectorAll("pre > code.language-mermaid");
             const fallbackBlocks = document.querySelectorAll("code.language-mermaid, .language-mermaid code");
             const allBlocks = new Set([...codeBlocks, ...fallbackBlocks]);
 
-            // Create diagnostic banner
             const diagDiv = document.createElement("div");
             diagDiv.style.background = "#1a1a1a";
             diagDiv.style.color = "#00ff00";
@@ -207,7 +205,6 @@
               
               const mermaidDiv = document.createElement("div");
               mermaidDiv.className = "mermaid";
-              // textContent preserves newlines and decodes HTML entities (e.g. --&gt; back to -->)
               mermaidDiv.textContent = codeEl.textContent;
               
               preEl.parentNode.insertBefore(mermaidDiv, preEl);
@@ -218,13 +215,12 @@
             mermaid.initialize({
               theme: isDark ? "dark" : "default",
               securityLevel: "loose",
-              startOnLoad: false, // Explicitly false since we manually invoke the parser below
+              startOnLoad: false,
               themeVariables: {
                 fontFamily: "Outfit, sans-serif"
               }
             });
 
-            // Force manual rendering on the newly created nodes
             const nodes = document.querySelectorAll(".mermaid");
             if (nodes.length > 0) {
               if (typeof mermaid.run === "function") {
