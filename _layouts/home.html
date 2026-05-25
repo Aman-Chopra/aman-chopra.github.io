@@ -24,34 +24,6 @@ home: true
         </div>
       </a>
     {%- endfor -%}
-</div>
-
-<div class="featured-section">
-  <h3 class="featured-heading">Distributed Consensus Lab</h3>
-  <p class="posts-item-note" style="margin-bottom: 1rem;">Interactive simulation of a <strong>Raft Consensus Protocol</strong>. Follower timeouts trigger candidate states, leading to votes and leader establishment. Leaders then issue heartbeats to followers. <strong>Click nodes to crash or recover them</strong>, and toggle network partitions to watch recovery in split-brain networks!</p>
-  
-  <div class="stat-card" style="padding: 1.5rem; text-align: left; position: relative;">
-    <div style="position: relative; width: 100%; height: 260px; background: rgba(0, 0, 0, 0.02); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-card);">
-      <canvas id="raft-canvas" style="display: block; width: 100%; height: 100%; cursor: pointer;"></canvas>
-    </div>
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; border-top: 1px solid var(--border-card); padding-top: 0.75rem;">
-      <div style="display: flex; gap: 0.5rem;">
-        <button id="btn-raft-reset" class="pub-action-btn" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Reset Cluster</button>
-        <button id="btn-raft-partition" class="pub-action-btn" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Simulate Partition</button>
-      </div>
-      
-      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.72rem; font-weight: 600; color: var(--text-muted);">
-        <span style="display: flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #1DB954;"></span>Leader</span>
-        <span style="display: flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #3572A5;"></span>Candidate</span>
-        <span style="display: flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #767f87;"></span>Follower</span>
-        <span style="display: flex; align-items: center; gap: 0.25rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #ff2957;"></span>Offline</span>
-      </div>
-    </div>
-    
-    <div style="margin-top: 0.75rem; padding: 0.5rem; background: rgba(0, 0, 0, 0.02); border: 1px dashed var(--border-card); border-radius: 6px; font-family: Consolas, monospace; font-size: 0.75rem; color: var(--text-muted); max-height: 80px; overflow-y: auto;" id="raft-log">
-      <div>[System] Raft consensus cluster initialized with 5 nodes. Follower election timeouts running...</div>
-    </div>
   </div>
 </div>
 
